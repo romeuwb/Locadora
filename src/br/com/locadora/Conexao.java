@@ -12,13 +12,11 @@ MySQL.
 
 Pode-se passar o nome ou o IP para identificar o servidor.
 
-Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
-
 */
 
 public class Conexao{
 
-String jdbc="jdbc:sqlserver://localhost/DB_VIDEOLOCA" ;
+	String jdbc="jdbc:sqlserver://localhost:1433;databaseName=DB_VIDEOLOCA" ;
 
 private String usuario = "sa";
 
