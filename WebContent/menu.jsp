@@ -13,7 +13,7 @@
                 <li class='active'><a href='index.jsp'><span>Home</span></a></li>
                 <li class='has-sub'><a href='#'><span>Cadastro</span></a>
                     <ul>
-                        <li class='has-sub'><a href='#'><span>Cliente</span></a>
+                        <li class='has-sub'><a href='cliente.jsp'><span>Cliente</span></a>
                         </li>
                         <li class='has-sub'><a href='#'><span>Filme</span></a>
                         </li>

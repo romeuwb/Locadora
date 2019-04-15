@@ -18,11 +18,11 @@ Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
 
 public class Conexao{
 
-String jdbc="jdbc:sqlserver://localhost/dbpi" ;
+String jdbc="jdbc:sqlserver://localhost/DB_VIDEOLOCA" ;
 
-private String usuario = "root";
+private String usuario = "sa";
 
-private String senha = "root";
+private String senha = "sql7";
 
 Statement st;
 
@@ -40,7 +40,7 @@ public Conexao() {
 
 try{
 
-Class.forName("com.mysql.jdbc.Driver");
+Class.forName("com.sql.jdbc.Driver");
 
 this.conexao = DriverManager.getConnection(jdbc,usuario,senha);
 
