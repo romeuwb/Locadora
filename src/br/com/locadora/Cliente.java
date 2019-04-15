@@ -13,10 +13,10 @@ public class Cliente {
 	private String telefone;
 	private String email;
 	private Date dtNascimento ;
-	private char sexo;
+	private String sexo;
 	
      
-    public Cliente(int codCliente, String rg, String Nome,	String endereco, String bairro,	String cidade, String estado, String telefone, 	String email, Date dtNascimento, char sexo) {
+    public Cliente(int codCliente, String rg, String Nome,	String endereco, String bairro,	String cidade, String estado, String telefone, 	String email, Date dtNascimento, String sexo) {
         this.codCliente = codCliente;
         this.rg = rg;
         this.Nome = Nome;
@@ -93,10 +93,10 @@ public class Cliente {
 	public void setDtNascimento(Date dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 
     

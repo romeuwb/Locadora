@@ -2,6 +2,7 @@ package br.com.locadora;
 
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 
 import br.com.locadora.Conexao;
 import sun.misc.Cleaner;
@@ -37,8 +38,8 @@ public class ClienteBD {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
             if (this.conexao.rs.next()) {
                 this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
-                		this.conexao.rs.getInt("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
-                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.get("sexo"));
+                		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
 
                 return this.cliente;
 
@@ -46,7 +47,7 @@ public class ClienteBD {
 
         } catch (Exception e) {
 
-            this.msg = "Nao foi possivel recuperar o usuário " + cliente.getNome() + ".\nErro:" + e.getMessage();
+            this.msg = "Nao foi possivel recuperar o usuario " + cliente.getNome() + ".\nErro:" + e.getMessage();
 
         }
 
@@ -67,8 +68,9 @@ public class ClienteBD {
             while (this.conexao.rs.next()) {
 
             	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
-                		this.conexao.rs.getInt("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
-                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.get("sexo"));
+                		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+
 
                 this.vetCliente.addElement(this.cliente);
 
@@ -96,7 +98,10 @@ public class ClienteBD {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
 
             if (this.conexao.rs.next()) {
-                this.cliente = new Cliente(this.conexao.rs.getInt("codigo"), this.conexao.rs.getString("nome"), this.conexao.rs.getString("login"), this.conexao.rs.getString("senha"), this.conexao.rs.getInt("tipo"), this.conexao.rs.getString("cpf"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("sexo"), this.conexao.rs.getString("endereco"), this.conexao.rs.getString("telefone"), this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"));
+            	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+                		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+
 
 
             }
@@ -124,7 +129,10 @@ public class ClienteBD {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
 
             while (this.conexao.rs.next()) {
-                this.cliente = new Cliente(this.conexao.rs.getInt("codigo"), this.conexao.rs.getString("nome"), this.conexao.rs.getString("login"), this.conexao.rs.getString("senha"), this.conexao.rs.getInt("tipo"), this.conexao.rs.getString("cpf"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("sexo"), this.conexao.rs.getString("endereco"), this.conexao.rs.getString("telefone"), this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"));
+            	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+                		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+
 
                 vetCliente.add(this.cliente);
 
@@ -152,7 +160,10 @@ public class ClienteBD {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
 
             while (this.conexao.rs.next()) {
-                this.cliente = new Cliente(this.conexao.rs.getInt("codigo"), this.conexao.rs.getString("nome"), this.conexao.rs.getString("login"), this.conexao.rs.getString("senha"), this.conexao.rs.getInt("tipo"), this.conexao.rs.getString("cpf"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("sexo"), this.conexao.rs.getString("endereco"), this.conexao.rs.getString("telefone"), this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"));
+            	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+                		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+
 
                 vetCliente.add(this.cliente);
 
@@ -172,37 +183,37 @@ public class ClienteBD {
 
     public boolean setCliente(char operacao, Cliente cliente) {
 
-        int codigo=cliente.getCodigo();
-        String nome = cliente.getNome();
-        String login = cliente.getLogin();
-        String senha= cliente.getSenha();
-        int tipo = cliente.getTipo();
-        String cpf = cliente.getCpf();
+        int codCliente=cliente.getCodCliente();
         String rg = cliente.getRg();
-        String sexo = cliente.getSexo();
-        String endereco = cliente.getEndereco();
-        String telefone = cliente.getTelefone();
-        String cidade = cliente.getCidade();
+        String Nome = cliente.getNome();
+        String endereco= cliente.getEndereco();
         String bairro = cliente.getBairro();
+        String cidade = cliente.getCidade();
+        String estado = cliente.getEstado();
+        String telefone = cliente.getTelefone();
+        String email = cliente.getEmail();
+        Date dtNascimento = cliente.getDtNascimento();
+        String sexo = cliente.getSexo();
+        
         
 
         switch (operacao) {
 
             case 'I':
 
-                this.sql = "insert into cliente( nome, login, senha, tipo, sexo, cpf, rg, endereco, telefone, cidade, bairro) values('" + nome + "','" + login + "','" + senha + "','" + tipo + "','" + sexo + "', '" + cpf + "', '" + rg + "','" + endereco + "','" + telefone + "','" + cidade + "','" + bairro + "')";
+                this.sql = "insert into cliente( codCliente, rg, Nome, endereco, bairro, cidade, estado, telefone, email, dtNascimento, sexo) values('" + codCliente + "','" + rg + "','" + Nome + "','" + endereco + "','" + bairro + "', '" + cidade + "', '" + estado + "','" + telefone + "','" + email + "','" + dtNascimento + "','" + sexo + "')";
 
                 break;
 
             case 'U':
 
-                this.sql = "update Cliente set nome='" + nome + "',login='" + login + "',senha='" + senha + "',tipo='" + tipo + "', cpf='" + cpf + "',rg='" + rg + "',sexo='" + sexo + "', endereco='" + endereco + "', telefone='" + telefone + "', cidade='" + cidade + "', bairro='" + bairro + "' where codigo=" +codigo;
+                this.sql = "update Cliente set rg='" + rg + "',Nome='" + Nome + "',endereco='" + endereco + "',bairro='" + bairro + "', cidade='" + cidade + "',estado='" + estado + "',telefone='" + telefone + "', email='" + email + "', dtNascimento='" + dtNascimento + "', sexo='" + sexo + "' where codCliente=" +codCliente;
 
                 break;
 
             case 'D':
 
-                this.sql = "delete from Cliente where codigo="+codigo;
+                this.sql = "delete from Cliente where codCliente="+codCliente;
 
                 break;
 
