@@ -11,8 +11,7 @@ public class Fornecedor {
     private String bairro;
     private String cidade;
 
-    public Fornecedor() {
-    }
+ 
 
     public Fornecedor(int codigo, String nome, String cpf, String rg, String endereco, String telefone, String cidade, String bairro) {
         this.codigo = codigo;

@@ -3,7 +3,7 @@ package br.com.locadora;
 import java.sql.*;
 import java.util.*;
 
-import comunica.Conexao;
+import br.com.locadora.Conexao;
 import sun.misc.Cleaner;
 
 public class ClienteBD {
@@ -30,75 +30,15 @@ public class ClienteBD {
         this.msg = this.msg + this.conexao.getMsg();
         return this.msg;
     }
-
-    public boolean autenticaCliente(Cliente cliente) {
-        this.sql = "select * from Cliente where login='" + cliente.getLogin()+ "' and senha='" + cliente.getSenha()+ " ' ";
-        try {
-            this.conexao.rs = this.conexao.st.executeQuery(this.sql);
-
-            if (this.conexao.rs.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-            this.msg = "Nao foi possivel inserir o Cliente " + cliente.getNome() + ".\nErro:" + e.getMessage();
-            return false;
-        }
-
-    }
-
-    public Cliente getClientePorLoginSenha(String login, String senha ) {
-
-        this.sql = "select * from dbpi.cliente where login='" + login+ "' and senha='" +senha+ "'"  ;
-
-
-        try {
-
-            this.conexao.rs = this.conexao.st.executeQuery(this.sql);
-
-            if (this.conexao.rs.next()) {
-                this.cliente = new Cliente(this.conexao.rs.getInt("codigo"), this.conexao.rs.getString("nome"), this.conexao.rs.getString("login"), this.conexao.rs.getString("senha"), this.conexao.rs.getInt("tipo"), this.conexao.rs.getString("cpf"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("sexo"), this.conexao.rs.getString("endereco"), this.conexao.rs.getString("telefone"), this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"));
-
-
-            }
-
-        } catch (Exception e) {
-
-            this.msg = "Nao foi possivel realizar a consulta.\n Erro:" + e.getMessage() + "\n";
-
-            getMsg();
-
-        }
-
-        return cliente;
-
-    }
-
-        public boolean autenticaFuncionario(Cliente cliente) {
-        this.sql = "select * from Cliente where login='" + cliente.getLogin()+ "' and senha='" + cliente.getSenha()+ "' and tipo='" + cliente.getTipo()+ "' ";
-        try {
-            this.conexao.rs = this.conexao.st.executeQuery(this.sql);
-
-            if (this.conexao.rs.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-            this.msg = "Nao foi possivel inserir o Cliente " + cliente.getNome() + ".\nErro:" + e.getMessage();
-            return false;
-        }
-
-    }
-    
     
     public Cliente getCliente(Cliente cliente) {
         this.sql = "select * from Cliente where nome='" + cliente.getNome() + "'";
         try {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
             if (this.conexao.rs.next()) {
-                this.cliente = new Cliente(this.conexao.rs.getInt("codigo"), this.conexao.rs.getString("nome"), this.conexao.rs.getString("login"), this.conexao.rs.getString("senha"), this.conexao.rs.getInt("tipo"), this.conexao.rs.getString("cpf"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("sexo"), this.conexao.rs.getString("endereco"), this.conexao.rs.getString("telefone"), this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"));
+                this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+                		this.conexao.rs.getInt("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.get("sexo"));
 
                 return this.cliente;
 
@@ -126,7 +66,9 @@ public class ClienteBD {
 
             while (this.conexao.rs.next()) {
 
-                this.cliente = new Cliente(this.conexao.rs.getInt("codigo"), this.conexao.rs.getString("nome"), this.conexao.rs.getString("login"), this.conexao.rs.getString("senha"), this.conexao.rs.getInt("tipo"), this.conexao.rs.getString("cpf"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("sexo"), this.conexao.rs.getString("endereco"), this.conexao.rs.getString("telefone"), this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"));
+            	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+                		this.conexao.rs.getInt("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.get("sexo"));
 
                 this.vetCliente.addElement(this.cliente);
 

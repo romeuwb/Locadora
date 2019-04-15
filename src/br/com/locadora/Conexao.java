@@ -18,7 +18,7 @@ Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
 
 public class Conexao{
 
-String jdbc="jdbc:sql://localhost/dbpi" ;
+String jdbc="jdbc:sqlserver://localhost/dbpi" ;
 
 private String usuario = "root";
 
