@@ -1,10 +1,10 @@
 <%@page import="java.util.Vector"%>
 <%@page import="javax.mail.SendFailedException"%>
 <%@page import="br.com.locadora.*" errorPage="erro.jsp"%>
-<jsp:useBean id="produto" class="br.com.locadora.Produto"/>
+<jsp:useBean id="produto" class="br.com.locadora.Filme"/>
 <jsp:useBean id="fachada" class="br.com.locadora.Fachada" />
 <%
-//Nada será gravado no cache do cliente
+	//Nada será gravado no cache do cliente
     response.setDateHeader("Expires", 0);
     response.setHeader("Pragma", "no-cache");
     if (request.getProtocol().equals("HTTP/1.1")) {
@@ -12,12 +12,11 @@
     }
 %>
 <%
-    String pesquisa = request.getParameter("nome");
+	String pesquisa = request.getParameter("nome");
     String cor = "";//Será utilizado para manipular as cores das celulas
     int contador = 0;
     Vector vetClientePF = new Vector();
     vetClientePF = fachada.getProdutoPorNome(pesquisa);
-
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -83,14 +82,14 @@
                                     <div align="center" class="style1"><strong>Manuten&ccedil;&atilde;o</strong></div></td>
                             </tr>
                             <%
-                                for (int i = 0; i < vetClientePF.size(); i++) {
-                                    produto = (Produto) vetClientePF.elementAt(i);
-                                    contador++;
-                                    if (contador % 2 == 0) {
-                                        cor = "#FFFFCC";
-                                    } else {
-                                        cor = "";
-                                    }
+                            	for (int i = 0; i < vetClientePF.size(); i++) {
+                                                                produto = (Filme) vetClientePF.elementAt(i);
+                                                                contador++;
+                                                                if (contador % 2 == 0) {
+                                                                    cor = "#FFFFCC";
+                                                                } else {
+                                                                    cor = "";
+                                                                }
                             %>
                             <tr bgcolor="<%=cor%>"> 
 

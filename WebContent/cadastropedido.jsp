@@ -1,18 +1,18 @@
 
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-<%@page import="br.com.locadora.Produto"%>
-<%@page import="br.com.locadora.ProdutoBD"%>
+<%@page import="br.com.locadora.Filme"%>
+<%@page import="br.com.locadora.FilmeBD"%>
 <%@page import="br.com.locadora.Pedido"%>
 <%
-    String codproduto;
+	String codproduto;
     codproduto= request.getParameter("cod");
     
-    Produto produto;
-    ProdutoBD proddb = new ProdutoBD();
+    Filme produto;
+    FilmeBD proddb = new FilmeBD();
     int codprodut= Integer.parseInt(codproduto);
     produto= proddb.getProdutoPorCod(codprodut);
-    %>
+%>
 <%  
 Date dataAtual = new Date();
 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");  

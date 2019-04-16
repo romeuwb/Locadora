@@ -9,7 +9,7 @@ public class Fachada {
     private UsuarioBD ubd;
     private ClienteBD clbd;
     private FornecedorBD fordb;
-    private ProdutoBD prod;
+    private FilmeBD prod;
     private PedidoBD ped;
 
     /**
@@ -182,8 +182,8 @@ public class Fachada {
      * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      */
 
-    public boolean autenticaProduto(Produto produto) {
-        this.prod = new ProdutoBD();
+    public boolean autenticaProduto(Filme produto) {
+        this.prod = new FilmeBD();
         if (prod.autenticaProduto(produto)) {
             return true;
         } else {
@@ -191,8 +191,8 @@ public class Fachada {
         }
     }
 
-    public boolean setProduto(char operacao, Produto produto) {
-        this.prod = new ProdutoBD();
+    public boolean setProduto(char operacao, Filme produto) {
+        this.prod = new FilmeBD();
         if (prod.setProduto(operacao, produto)) {
             return true;
         } else {
@@ -206,8 +206,8 @@ public class Fachada {
      * @param login
      * @return Usuario u
      */
-    public Produto getProduto(Produto produto) {
-        this.prod = new ProdutoBD();
+    public Filme getProduto(Filme produto) {
+        this.prod = new FilmeBD();
         return this.prod.getProduto(produto);
     }
 
@@ -220,21 +220,21 @@ public class Fachada {
      * @return Um vetor de objetos de Usuario.
      */
     public Vector getProduto() {
-        this.prod = new ProdutoBD();
+        this.prod = new FilmeBD();
         return this.prod.getProduto();
     }
 
-    public Vector getProdutoINI(Produto produto) {
-        this.prod = new ProdutoBD();
+    public Vector getProdutoINI(Filme produto) {
+        this.prod = new FilmeBD();
         return this.prod.getProdutoINI(produto);
     }
     public Vector getProdutoPorNome(String pesquisa) {
-        this.prod = new ProdutoBD();
+        this.prod = new FilmeBD();
         return this.prod.getProdutoPorNome(pesquisa);
     }
 
-    public Produto getProdutoPorCod(int codigo) {
-        this.prod = new ProdutoBD();
+    public Filme getProdutoPorCod(int codigo) {
+        this.prod = new FilmeBD();
         return this.prod.getProdutoPorCod(codigo);
     }
 

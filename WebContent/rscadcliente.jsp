@@ -6,7 +6,7 @@
 
 <%
     String rg = "", Nome = "", endereco = "", bairro = "", cidade = "", estado = "", telefone = "",email="",sexo="", msg = "";
-	Date dtNascimento="";	
+	dtNascimento= request.getParameter("dtNascimento").toString();	
 	
 	rg = request.getParameter("rg");
     Nome = request.getParameter("nome");
