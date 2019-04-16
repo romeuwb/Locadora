@@ -1,14 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!
-<%
-//Verifica se está logado
-//    if (session.getValue("loginUsuario") != null || session.getValue("senhaUsuario") != null) {
-//    } else {
-//        out.println("Você não está logado no sistema");
-//        out.println("<script>document.location.href='index.jsp';</script>");
-//    }
-//%> 
->
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
@@ -34,9 +24,9 @@
                     <div id="img"></div>
 
                     <div id="form">
-                        <form action="rscadfornecedor.jsp" method="post" name="frmCadastro" target="_self" id="frmCadastro">
+                        <form action="rscadcliente.jsp" method="post" name="frmCadastro" target="_self" id="frmCadastro">
                             <div align="center">
-                                <h1>Formulário de Cadastro de Fornecedores</h1>
+                                <h1>Formulário de Cadastro de Cliente</h1>
 
                                 <table width="80%"  border="0">
                                     <tr>
@@ -47,33 +37,45 @@
                                     </tr>
                                     
                                     <tr>
-                                        <td><strong>C.P.F:</strong></td>
-                                        <td><span class="style1">
-                                                <input name="cpf" type="text" id="cpf" size="20" />
-                                            </span></td>
-                                    </tr>
-                                    <tr>
                                         <td><strong>RG:</strong></td>
                                         <td><span class="style1">
                                                 <input name="rg" type="text" id="rg" size="20" />
+                                            </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Endereco:</strong></td>
+                                        <td><span class="style1">
+                                                <input name="endereco" type="text" id="endereco" size="20" />
                                             </span></tr>
 
                                     <tr>
-                                        <td><strong>Endereço:</strong></td>
+                                        <td><strong>Bairro:</strong></td>
                                         <td><strong>
-                                                <input name="endereco" type="text" id="endereco" size="40" />
+                                                <input name="bairro" type="text" id="bairro" size="40" />
                                             </strong></tr>
+                                    <tr>
+                                        <td><strong>Cidade:</strong></td>
+                                        <td><input name="cidade" type="text" id="cidade" size="20" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Estado:</strong></td>
+                                        <td><input name="estado" type="text" id="estado" size="20" /></td>
+                                    </tr>
                                     <tr>
                                         <td><strong>Telefone:</strong></td>
                                         <td><input name="telefone" type="text" id="telefone" size="20" /></td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Bairro:</strong></td>
-                                        <td><input name="bairro" type="text" id="bairro" size="20" /></td>
+                                        <td><strong>E-mail:</strong></td>
+                                        <td><input name="email" type="text" id="email" size="20" /></td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Cidade:</strong></td>
-                                        <td><input name="cidade" type="text" id="cidade" size="20" /></td>
+                                        <td><strong>data Nascimento:</strong></td>
+                                        <td><input name="dtNascimento" type="text" id="dtNascimento" size="20" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Sexo:</strong></td>
+                                        <td><input name="sexo" type="text" id="sexo" size="20" /></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>

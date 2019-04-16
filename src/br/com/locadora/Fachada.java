@@ -77,15 +77,6 @@ public class Fachada {
      * xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
      */
 
-    public boolean autenticaCliente(Cliente cliente) {
-        this.clbd = new ClienteBD();
-        if (clbd.autenticaCliente(cliente)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public boolean setCliente(char operacao, Cliente cliente) {
         this.clbd = new ClienteBD();
         if (clbd.setCliente(operacao, cliente)) {
@@ -124,12 +115,12 @@ public class Fachada {
         return this.clbd.getClienteINI(cliente);
     }
     
-    public Vector getPFNome(String pesquisa) {
+    public Vector getNome(String pesquisa) {
         this.clbd = new ClienteBD();
         return this.clbd.getClientePorNome(pesquisa);
     }
 
-    public Cliente getPFPorCod(int codigo) {
+    public Cliente getPorCod(int codigo) {
         this.clbd = new ClienteBD();
         return this.clbd.getClientePorCod(codigo);
     }
