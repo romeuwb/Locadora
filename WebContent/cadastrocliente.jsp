@@ -75,7 +75,10 @@
                                     </tr>
                                     <tr>
                                         <td><strong>Sexo:</strong></td>
-                                        <td><input name="sexo" type="text" id="sexo" size="20" /></td>
+                                        <td><select name="sexo" size="1" id="sexo">
+                                                <option value="1">M</option>
+                                                <option value="2">F</option>
+                                            </select></td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>

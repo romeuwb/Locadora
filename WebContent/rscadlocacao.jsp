@@ -1,27 +1,30 @@
 <%@page import="javax.swing.JOptionPane"%>
+<%@page import="java.util.Date"%>
 <%@page import="javax.mail.SendFailedException"%>
-<%@page import="aula.*" errorPage="erro.jsp"%>
-<jsp:useBean id="pedido" class="aula.Pedido"/>
-<jsp:useBean id="fachada" class="aula.Fachada" />
+<%@page import="br.com.locadora.*" errorPage="erro.jsp"%>
+<jsp:useBean id="locacao" class="br.com.locadora.Locacao"/>
+<jsp:useBean id="fachada" class="br.com.locadora.Fachada" />
 
 <%
-    String descricao = "", situacao = "", valor = "", data_pedido= "", msg = "";
-    String codprod, codcliente;
-    codprod = request.getParameter("codprod");
-    codcliente = session.getAttribute("codcliente").toString();
-    descricao = request.getParameter("descricao");
-    situacao = request.getParameter("situacao");
-    data_pedido = request.getParameter("data_pedido");
-    valor = request.getParameter("valor");
+	String msg="";
+    Date data_retirada, data_devolucao;
+    int cod_locacao, cod_cliente, cod_filme;
     
-    pedido.setDescricao(descricao);
-    pedido.setData(data_pedido);
-     pedido.setValor(valor);
-    pedido.setSituacao(situacao);
-    pedido.setCodprod(Integer.parseInt(codprod));
-    pedido.setCodcliente(Integer.parseInt(codcliente));
+    cod_locacao = request.getParameter("cod_locacao");
+    cod_cliente = session.getAttribute("cod_cliente").toString();
+    cod_filme = request.getParameter("cod_filme");
+    data_retirada = request.getParameter("data_retirada");
+    data_devolucao = request.getParameter("data_devolucao");
     
-    if (fachada.setPedido('I', pedido)) {
+    
+    locacao.setCodlocacao(cod_locacao);
+    locacao.setCodcliente(cod_cliente);
+    locacao.setCodfilme(cod_filme);
+    locacao.setDataretirada(data_retirada);
+    locacao.setDatadevolucao(data_devolucao);
+    
+    
+    if (fachada.setPedido('I', locacao)) {
         msg = "Pedido efetuado com Exito";
     } else {
         msg = "O pedido não pode ser realizado";

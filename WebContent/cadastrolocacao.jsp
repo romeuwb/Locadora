@@ -37,37 +37,41 @@ String dataStr = sdf.format(dataAtual);
                     <div id="img"></div>
 
                     <div id="form">
-                        <form action="rscadpedido.jsp?codprod=1" method="post" name="frmCadastro" target="_self" id="frmCadastro">
+                        <form action="rscadpedido.jsp?cod_locacao=1" method="post" name="frmCadastro" target="_self" id="frmCadastro">
                             <div align="center">
                                 <h1>Formulário de Pedido</h1>
 
                                 <table width="80%"  border="0">
                                     <tr>
-                                        <td width="12%"><span class="style1"><strong>Descrição:</strong></span></td>
+                                        <td width="12%"><span class="style1"><strong>Codigo Locacao:</strong></span></td>
                                         <td width="88%"><span class="style1">
-                                                <input name="descricao" type="text" id="descricao" size="40"value="Buque" >
+                                                <input name="codlocacao" type="text" id="codlocacao" size="40" >
                                             </span></td>
                                     </tr>
 
                                     <tr>
-                                        <td><strong>Data do Pedido:</strong></td>
+                                        <td><strong>Codigo Cliente:</strong></td>
                                         <td><span class="style1">
-                                                <input name="data_pedido" type="text" id="data_pedido" size="20" value="<%=dataStr%>" />
+                                                <input name="codcliente" type="text" id="codcliente" size="20" />
                                             </span></td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Valor:</strong></td>
+                                        <td><strong>Codigo Filme:</strong></td>
                                         <td><span class="style1">
-                                                <input name="valor" type="text" id="valor" size="20" value="<%=Locacao.getValor() %>" />
+                                                <input name="codfilme" type="text" id="codfilme" size="20"  />
                                             </span></tr>
                                     <tr>
-                                        <td><strong>Situação</strong></td>
-                                        <td><select name="situacao" size="1" id="situacao">
-                                                <option value="1">Pendente</option>
-                                                <option value="2">Atendido</option>
-                                            </select></td>
+                                        <td><strong>Data Retirada</strong></td>
+                                        <td><span class="style1">
+                                                <input name="dataretirada" type="text" id="dataretirada" size="20"  value="<%=dataStr%>" />
+                                            </span></tr>
                                     </tr>
-
+<tr>
+                                        <td><strong>Data Devolucao</strong></td>
+                                        <td><span class="style1">
+                                                <input name="datadevolucao" type="text" id="datadevolucao" size="20"  />
+                                            </span></tr>
+                                    </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td><strong>
