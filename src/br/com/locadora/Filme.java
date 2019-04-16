@@ -26,7 +26,10 @@ public class Filme {
     public int getCodfilme() {
         return cod_filme;
     }
-
+    
+    public void SetCodFilme(int cod_filme) {
+        this.cod_categoria=cod_filme;
+    }
     public void getCodFilme(int cod_filme) {
         this.cod_filme = cod_filme;
     }

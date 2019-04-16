@@ -24,9 +24,13 @@
                     </div>
                     <div id="img-meio"> <img src="img/img4.jpg" width="420" height="290" />
                     </div>
-                    <div id="img-meio"> <img src="img/img5.jpg" width="420" height="290" />
+                    <div id="img-meio"> <img src="img/img5.jpg" width="320" height="290" />
                     </div>
                     <div id="meio">
+                        
+                        
+                        
+                        
                         
                         
                     </div>

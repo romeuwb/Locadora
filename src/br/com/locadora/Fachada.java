@@ -66,7 +66,7 @@ public class Fachada {
      * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
      */
 
-       public boolean setProduto(char operacao, Filme filme) {
+       public boolean setFilme(char operacao, Filme filme) {
         this.film = new FilmeBD();
         if (film.setFilme(operacao, filme)) {
             return true;
@@ -89,16 +89,16 @@ public class Fachada {
         return this.film.getFilme();
     }
 
-    public Vector getProdutoINI(Filme produto) {
+    public Vector getFilmeINI(Filme produto) {
         this.film = new FilmeBD();
         return this.film.getFilmeINI(produto);
     }
-    public Vector getProdutoPorNome(String pesquisa) {
+    public Vector getFilmePorNome(String pesquisa) {
         this.film = new FilmeBD();
         return this.film.getFilmePorNome(pesquisa);
     }
 
-    public Filme getProdutoPorCod(int codigo) {
+    public Filme getFilmePorCod(int codigo) {
         this.film = new FilmeBD();
         return this.film.getFilmePorCod(codigo);
     }

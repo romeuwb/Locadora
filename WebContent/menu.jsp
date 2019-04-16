@@ -29,13 +29,12 @@
                                 <li class='last'><a href='gerenciadorLocacao.jsp'><span>Locação</span></a></li>
                                 <li class='last'><a href='gerenciadorFilme.jsp'><span>Filmes</span></a></li>
                             </ul>
-                        <li class='last'><a href='#'><span>Pagamentos</span></a></li>
-                        <li class='last'><a href='#'><span>Recebimentos</span></a></li>
+                        
                         
                 </li>
               
             </ul> 
- 
+ <li class='has-sub'><a href='#'><span>Ajuda</span></a>
     </div>
 
 <!-- Fim menu -->
