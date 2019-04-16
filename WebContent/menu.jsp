@@ -38,12 +38,6 @@
  
     </div>
 
-    <!-- login -->
-
-<td width="22%"><div align="center"></div></td>
-<!-- login -->
-
-
 <!-- Fim menu -->
 </body>
 </html>
