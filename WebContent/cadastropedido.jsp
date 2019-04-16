@@ -3,7 +3,7 @@
 <%@page import="java.util.Date"%>
 <%@page import="br.com.locadora.Filme"%>
 <%@page import="br.com.locadora.FilmeBD"%>
-<%@page import="br.com.locadora.Pedido"%>
+<%@page import="br.com.locadora.Locacao"%>
 <%
 	String codproduto;
     codproduto= request.getParameter("cod");

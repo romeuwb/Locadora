@@ -10,7 +10,7 @@ public class Fachada {
     private ClienteBD clbd;
     private FornecedorBD fordb;
     private FilmeBD prod;
-    private PedidoBD ped;
+    private LocacaoBD ped;
 
     /**
      * Construtor padrao default
@@ -242,8 +242,8 @@ public class Fachada {
      * Operações com Pedidos
      * xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
      */
-    public boolean autenticaPedido(Pedido pedido) {
-        this.ped = new PedidoBD();
+    public boolean autenticaPedido(Locacao pedido) {
+        this.ped = new LocacaoBD();
         if (ped.autenticaPedido(pedido)) {
             return true;
         } else {
@@ -251,8 +251,8 @@ public class Fachada {
         }
     }
 
-    public boolean setPedido(char operacao, Pedido pedido) {
-        this.ped = new PedidoBD();
+    public boolean setPedido(char operacao, Locacao pedido) {
+        this.ped = new LocacaoBD();
         if (ped.setPedido(operacao, pedido)) {
             return true;
         } else {
@@ -266,8 +266,8 @@ public class Fachada {
      * @param login
      * @return Usuario u
      */
-    public Pedido getPedido(Pedido pedido) {
-        this.ped = new PedidoBD();
+    public Locacao getPedido(Locacao pedido) {
+        this.ped = new LocacaoBD();
         return this.ped.getPedido(pedido);
     }
 
@@ -280,21 +280,21 @@ public class Fachada {
      * @return Um vetor de objetos de Usuario.
      */
     public Vector getPedido() {
-        this.ped = new PedidoBD();
+        this.ped = new LocacaoBD();
         return this.ped.getPedido();
     }
 
-    public Vector getPedidoINI(Pedido pedido) {
-        this.ped = new PedidoBD();
+    public Vector getPedidoINI(Locacao pedido) {
+        this.ped = new LocacaoBD();
         return this.ped.getPedidoINI(pedido);
     }
     public Vector getPedidoPorNome(String pesquisa) {
-        this.ped = new PedidoBD();
+        this.ped = new LocacaoBD();
         return this.ped.getPesquisaPorNome(pesquisa);
     }
 
-    public Pedido getPedidoPorCod(int codigo) {
-        this.ped = new PedidoBD();
+    public Locacao getPedidoPorCod(int codigo) {
+        this.ped = new LocacaoBD();
         return this.ped.getPedPorCod(codigo);
     }
 }
