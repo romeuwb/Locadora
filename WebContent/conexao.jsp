@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.sql.*"%>
 <%
-Class.forName("com.microsoft.sqlserver.jdbc.sqlserverdriver");
-Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=DB_VIDEOLOCA");
+Class.forName("oracle.jdbc.OracleDriver");
+Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE");
 Statement stm = con.createStatement();
 %>

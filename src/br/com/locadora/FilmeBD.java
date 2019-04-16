@@ -119,7 +119,7 @@ public class FilmeBD {
 
         this.sql = "select * from Filme where cod_filme=" +cod_filme;
 
-        Filme produto = null;
+        Filme titulo = null;
 
         try {
 

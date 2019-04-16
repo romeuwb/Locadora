@@ -33,7 +33,7 @@ public class ClienteBD {
     }
     
     public Cliente getCliente(Cliente cliente) {
-        this.sql = "select * from Cliente where nome='" + cliente.getNome() + "'";
+        this.sql = "select * from Clientes where nome='" + cliente.getNome() + "'";
         try {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
             if (this.conexao.rs.next()) {
@@ -57,7 +57,7 @@ public class ClienteBD {
 
     public Vector getCliente() {
 
-        this.sql = "select * from Cliente order by nome";
+        this.sql = "select * from Clientes order by nome";
 
         this.vetCliente = new Vector();
 
@@ -90,7 +90,7 @@ public class ClienteBD {
     
     public Cliente getClientePorCod(int codigo) {
 
-        this.sql = "select * from dbpi.cliente where codigo=" + codigo;
+        this.sql = "select * from Clientes where codigo=" + codigo;
 
 
         try {
@@ -120,7 +120,7 @@ public class ClienteBD {
 
     public Vector getClientePorNome(String pesquisa) {
 
-        this.sql = "select * from Cliente where nome like '" + pesquisa + "%'";
+        this.sql = "select * from Clientes where nome like '" + pesquisa + "%'";
 
         this.vetCliente = new Vector();
 
@@ -151,7 +151,7 @@ public class ClienteBD {
     }
     public Vector getClienteINI(Cliente cliente) {
 
-        this.sql = "select * from Cliente where nome like '" + cliente.getNome() + "%'";
+        this.sql = "select * from Clientes where nome like '" + cliente.getNome() + "%'";
 
         this.vetCliente = new Vector();
 
@@ -201,19 +201,19 @@ public class ClienteBD {
 
             case 'I':
 
-                this.sql = "insert into cliente( codCliente, rg, Nome, endereco, bairro, cidade, estado, telefone, email, dtNascimento, sexo) values('" + codCliente + "','" + rg + "','" + Nome + "','" + endereco + "','" + bairro + "', '" + cidade + "', '" + estado + "','" + telefone + "','" + email + "','" + dtNascimento + "','" + sexo + "')";
+                this.sql = "insert into Clientes( codCliente, rg, Nome, endereco, bairro, cidade, estado, telefone, email, dtNascimento, sexo) values('" + codCliente + "','" + rg + "','" + Nome + "','" + endereco + "','" + bairro + "', '" + cidade + "', '" + estado + "','" + telefone + "','" + email + "','" + dtNascimento + "','" + sexo + "')";
 
                 break;
 
             case 'U':
 
-                this.sql = "update Cliente set rg='" + rg + "',Nome='" + Nome + "',endereco='" + endereco + "',bairro='" + bairro + "', cidade='" + cidade + "',estado='" + estado + "',telefone='" + telefone + "', email='" + email + "', dtNascimento='" + dtNascimento + "', sexo='" + sexo + "' where codCliente=" +codCliente;
+                this.sql = "update Clientes set rg='" + rg + "',Nome='" + Nome + "',endereco='" + endereco + "',bairro='" + bairro + "', cidade='" + cidade + "',estado='" + estado + "',telefone='" + telefone + "', email='" + email + "', dtNascimento='" + dtNascimento + "', sexo='" + sexo + "' where codCliente=" +codCliente;
 
                 break;
 
             case 'D':
 
-                this.sql = "delete from Cliente where codCliente="+codCliente;
+                this.sql = "delete from Clientes where codCliente="+codCliente;
 
                 break;
 

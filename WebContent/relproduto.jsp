@@ -1,7 +1,7 @@
 <%@page import="java.util.Vector"%>
 <%@page import="javax.mail.SendFailedException"%>
 <%@page import="br.com.locadora.*" errorPage="erro.jsp"%>
-<jsp:useBean id="produto" class="br.com.locadora.Filme"/>
+<jsp:useBean id="filme" class="br.com.locadora.Filme"/>
 <jsp:useBean id="fachada" class="br.com.locadora.Fachada" />
 <%
 	//Nada será gravado no cache do cliente

@@ -4,15 +4,7 @@
 <%@page import="br.com.locadora.Filme"%>
 <%@page import="br.com.locadora.FilmeBD"%>
 <%@page import="br.com.locadora.Locacao"%>
-<%
-	String codproduto;
-    codproduto= request.getParameter("cod");
-    
-    Filme produto;
-    FilmeBD proddb = new FilmeBD();
-    int codprodut= Integer.parseInt(codproduto);
-    produto= proddb.getProdutoPorCod(codprodut);
-%>
+
 <%  
 Date dataAtual = new Date();
 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");  
@@ -24,7 +16,7 @@ String dataStr = sdf.format(dataAtual);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link rel="stylesheet" href="css/estilo.css" type="text/css" />
-        <title>Cadastro de Pedido</title>
+        <title>Nova Locação</title>
     </head>
     <body id="container">
 
@@ -66,7 +58,7 @@ String dataStr = sdf.format(dataAtual);
                                     <tr>
                                         <td><strong>Valor:</strong></td>
                                         <td><span class="style1">
-                                                <input name="valor" type="text" id="valor" size="20" value="<%=produto.getValor() %>" />
+                                                <input name="valor" type="text" id="valor" size="20" value="<%=Locacao.getValor() %>" />
                                             </span></tr>
                                     <tr>
                                         <td><strong>Situação</strong></td>

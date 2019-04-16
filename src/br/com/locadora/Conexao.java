@@ -1,112 +1,77 @@
 package br.com.locadora;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import java.util.*;
 
-/** Classe que realiza conexão com o banco
-de dados
-
-Neste exemplo é mostrado para um conexão com o Banco de Dados
-MySQL.
-
-Pode-se passar o nome ou o IP para identificar o servidor.
-
+/** Classe que realiza conexao  com o banco de dados
 */
 
-public class Conexao{
+public class Conexao {
 
-	String jdbc="jdbc:sqlserver://localhost:1433;databaseName=DB_VIDEOLOCA" ;
+	private String	driver	= "oracle.jdbc.driver.OracleDriver";
+	private String	url		= "jdbc:oracle:thin:@localhost:1521:XE";
+	private String	user	= "SYSTEM";
+	private String	senha	= "ora7";
 
-private String usuario = "sa";
+	Statement st;
+	Connection		conexao;
+	private String	msg		= "";
+	private String	sql		= null;
+	ResultSet		rs		= null;
 
-private String senha = "sql7";
+	/** Construtor default */
 
-Statement st;
+	public Conexao() {
 
-Connection conexao;
+		try {
 
-private String msg="";
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-private String sql=null;
+			this.conexao = DriverManager.getConnection(url, user, senha);
 
-ResultSet rs=null;
+			this.st = this.conexao.createStatement();
 
-/** Construtor default */
+			this.msg = "Conex�o estabelecida com exito !\n";
 
-public Conexao() {
+		} catch (ClassNotFoundException e) {
+			this.msg = "Driver JDBC-ODBC não encontrado!.Verifique a classe do Driver";
+			getmsg();
+		} catch (Exception e) {
+			this.msg = "Problemas na conexao com a fonte de dados,verifique o SQL passado.";
+			getmsg();
+		}
+	}
 
-try{
+	/** Método para imprimir no console */
 
-Class.forName("com.sql.jdbc.Driver");
+	public void getmsg() {
+		System.out.println(this.msg);
+	}
 
-this.conexao = DriverManager.getConnection(jdbc,usuario,senha);
+	/**Método para retornar a variável de menagem*/
 
-this.st = this.conexao.createStatement();
+	public String getMsg() {
+		return this.msg;
+	}
 
-this.msg="Conexão estabelecida com exito !\n";
+	public void fecharConexao() {
+		try {
+			this.st.close();
+			this.conexao.close();
 
-}
+		} catch (Exception e) {
+			this.msg = "Não foi possível fechar a conexao";
+			getmsg();
+			e.printStackTrace();
+		}
+	}
 
-catch(ClassNotFoundException e) {
-
-this.msg="Driver JDBC-ODBC não encontrado!.Verifique a classe do Driver";
-
-getmsg();
-
-}
-
-catch(Exception e) {
-
-this.msg="Problemas na conexao com a fonte de dados,verifique o SQL passado.";
-
-getmsg();
-
-}
-
-}
-
-/** Método para imprimir no console */
-
-public void getmsg(){
-
-System.out.println(this.msg);
-
-}
-
-/**Método para retornar a variável
-de menagem*/
-
-public String getMsg(){
-
-return this.msg;
-
-}
-
-public void fecharConexao(){
-
-try{
-
-this.st.close();
-
-this.conexao.close();
-
-}catch(Exception e){
-
-this.msg="Não foi possível fechar a conexao";
-
-getmsg();
-
-e.printStackTrace();
-
-}
-
-}
-
-public Connection getConexao() {
-
-return conexao;
-
-}
+	public Connection getConexao() {
+		return conexao;
+	}
 
 }
