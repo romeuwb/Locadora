@@ -76,8 +76,8 @@
                                     <tr>
                                         <td><strong>Sexo:</strong></td>
                                         <td><select name="sexo" size="1" id="sexo">
-                                                <option value="1">M</option>
-                                                <option value="2">F</option>
+                                                <option value="m">M</option>
+                                                <option value="f">F</option>
                                             </select></td>
                                     </tr>
                                     <tr>

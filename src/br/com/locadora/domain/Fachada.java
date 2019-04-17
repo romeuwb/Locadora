@@ -1,7 +1,11 @@
-package br.com.locadora;
+package br.com.locadora.domain;
 
 import java.sql.*;
 import java.util.Vector;
+
+import br.com.locadora.dao.ClienteBD;
+import br.com.locadora.dao.FilmeBD;
+import br.com.locadora.dao.LocacaoBD;
 
 public class Fachada {
 

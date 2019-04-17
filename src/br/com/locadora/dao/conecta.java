@@ -1,4 +1,4 @@
-package br.com.locadora;
+package br.com.locadora.dao;
 import java.sql.*;
 
 public class conecta {

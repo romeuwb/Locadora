@@ -2,7 +2,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="br.com.locadora.Filme"%>
-<%@page import="br.com.locadora.FilmeBD"%>
+<%@page import="br.com.locadora.dao.FilmeBD"%>
 <%@page import="br.com.locadora.Locacao"%>
 
 <%  

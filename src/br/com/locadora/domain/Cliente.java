@@ -1,9 +1,9 @@
-package br.com.locadora;
+package br.com.locadora.domain;
 import java.util.Date;
 
 public class Cliente {
 
-	private int codCliente;
+	private int cod_Cliente;
 	private String rg;
 	private String Nome;
 	private String endereco;
@@ -12,12 +12,12 @@ public class Cliente {
 	private String estado;
 	private String telefone;
 	private String email;
-	private Date dtNascimento ;
+	private Date dataNascimento ;
 	private String sexo;
 	
      
-    public Cliente(int codCliente, String rg, String Nome,	String endereco, String bairro,	String cidade, String estado, String telefone, 	String email, Date dtNascimento, String sexo) {
-        this.codCliente = codCliente;
+    public Cliente(int cod_Cliente, String rg, String Nome,	String endereco, String bairro,	String cidade, String estado, String telefone, 	String email, Date dataNascimento, String sexo) {
+        this.cod_Cliente = cod_Cliente;
         this.rg = rg;
         this.Nome = Nome;
         this.endereco = endereco;
@@ -26,7 +26,7 @@ public class Cliente {
         this.estado = estado;
         this.telefone = telefone;
         this.email = email;
-        this.dtNascimento = dtNascimento;
+        this.dataNascimento = dataNascimento;
         this.sexo = sexo;
     }
 
@@ -34,10 +34,10 @@ public class Cliente {
 		super();
 	}
 	public int getCodCliente() {
-		return codCliente;
+		return cod_Cliente;
 	}
-	public void setCodCliente(int codCliente) {
-		this.codCliente = codCliente;
+	public void setCodCliente(int cod_Cliente) {
+		this.cod_Cliente = cod_Cliente;
 	}
 	public String getRg() {
 		return rg;
@@ -87,11 +87,11 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getDtNascimento() {
-		return dtNascimento;
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
 	public void setDtNascimento(Date dtNascimento) {
-		this.dtNascimento = dtNascimento;
+		this.dataNascimento = dataNascimento;
 	}
 	public String getSexo() {
 		return sexo;

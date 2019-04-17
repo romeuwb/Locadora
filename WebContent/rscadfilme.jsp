@@ -10,11 +10,11 @@
 	int cod_filme, cod_categoria;
 	float valor_locacao;
 	
-	cod_filme = request.getParameter("cod_filme");
+	cod_filme = Integer.parseInt(request.getParameter("cod_filme")) ;
 	titulo = request.getParameter("titulo");
 	diretor = request.getParameter("diretor");
-	cod_categoria = request.getParameter("cod_categoria");
-	valor_locacao = request.getParameter("valor_locacao");
+	cod_categoria = Integer.parseInt(request.getParameter("cod_categoria")) ;
+	valor_locacao = Float.parseFloat(request.getParameter("valor_locacao")) ;
 	reservada = request.getParameter("reservada");
     
     

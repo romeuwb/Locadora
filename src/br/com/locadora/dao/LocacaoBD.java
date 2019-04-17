@@ -1,10 +1,11 @@
-package br.com.locadora;
+package br.com.locadora.dao;
 
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
 
-import br.com.locadora.Conexao;
+import br.com.locadora.dao.Conexao;
+import br.com.locadora.domain.Locacao;
 
 public class LocacaoBD {
 

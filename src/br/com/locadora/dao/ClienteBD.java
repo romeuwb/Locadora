@@ -1,11 +1,10 @@
-package br.com.locadora;
+package br.com.locadora.dao;
 
-import java.sql.*;
+
 import java.util.*;
 import java.util.Date;
 
-import br.com.locadora.Conexao;
-import sun.misc.Cleaner;
+import br.com.locadora.domain.Cliente;
 
 public class ClienteBD {
 
@@ -37,9 +36,9 @@ public class ClienteBD {
         try {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
             if (this.conexao.rs.next()) {
-                this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+                this.cliente = new Cliente(this.conexao.rs.getInt("cod_Cliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
                 		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
-                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("datanascimentos"), this.conexao.rs.getString("sexo"));
 
                 return this.cliente;
 
@@ -67,9 +66,9 @@ public class ClienteBD {
 
             while (this.conexao.rs.next()) {
 
-            	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+            	this.cliente = new Cliente(this.conexao.rs.getInt("cod_Cliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
                 		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
-                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("datanascimento"), this.conexao.rs.getString("sexo"));
 
 
                 this.vetCliente.addElement(this.cliente);
@@ -98,9 +97,9 @@ public class ClienteBD {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
 
             if (this.conexao.rs.next()) {
-            	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+            	this.cliente = new Cliente(this.conexao.rs.getInt("cod_Cliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
                 		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
-                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("datanascimento"), this.conexao.rs.getString("sexo"));
 
 
 
@@ -129,9 +128,9 @@ public class ClienteBD {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
 
             while (this.conexao.rs.next()) {
-            	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+            	this.cliente = new Cliente(this.conexao.rs.getInt("cod_Cliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
                 		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
-                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("datanascimento"), this.conexao.rs.getString("sexo"));
 
 
                 vetCliente.add(this.cliente);
@@ -160,9 +159,9 @@ public class ClienteBD {
             this.conexao.rs = this.conexao.st.executeQuery(this.sql);
 
             while (this.conexao.rs.next()) {
-            	this.cliente = new Cliente(this.conexao.rs.getInt("codCliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
+            	this.cliente = new Cliente(this.conexao.rs.getInt("cod_Cliente"), this.conexao.rs.getString("rg"), this.conexao.rs.getString("Nome"), this.conexao.rs.getString("endereco"), 
                 		this.conexao.rs.getString("bairro"), this.conexao.rs.getString("cidade"), this.conexao.rs.getString("estado"), this.conexao.rs.getString("telefone"), 
-                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("dtNascimento"), this.conexao.rs.getString("sexo"));
+                		this.conexao.rs.getString("email"), this.conexao.rs.getDate("datanascimento"), this.conexao.rs.getString("sexo"));
 
 
                 vetCliente.add(this.cliente);
@@ -192,7 +191,7 @@ public class ClienteBD {
         String estado = cliente.getEstado();
         String telefone = cliente.getTelefone();
         String email = cliente.getEmail();
-        Date dtNascimento = cliente.getDtNascimento();
+        Date dtNascimento = cliente.getDataNascimento();
         String sexo = cliente.getSexo();
         
         
@@ -201,19 +200,19 @@ public class ClienteBD {
 
             case 'I':
 
-                this.sql = "insert into Clientes( codCliente, rg, Nome, endereco, bairro, cidade, estado, telefone, email, dtNascimento, sexo) values('" + codCliente + "','" + rg + "','" + Nome + "','" + endereco + "','" + bairro + "', '" + cidade + "', '" + estado + "','" + telefone + "','" + email + "','" + dtNascimento + "','" + sexo + "')";
+                this.sql = "insert into Clientes( cod_Cliente, rg, Nome, endereco, bairro, cidade, estado, telefone, email, sexo) values('" + codCliente + "','" + rg + "','" + Nome + "','" + endereco + "','" + bairro + "', '" + cidade + "', '" + estado + "','" + telefone + "','" + email + "','" + sexo + "')";
 
                 break;
 
             case 'U':
 
-                this.sql = "update Clientes set rg='" + rg + "',Nome='" + Nome + "',endereco='" + endereco + "',bairro='" + bairro + "', cidade='" + cidade + "',estado='" + estado + "',telefone='" + telefone + "', email='" + email + "', dtNascimento='" + dtNascimento + "', sexo='" + sexo + "' where codCliente=" +codCliente;
+                this.sql = "update Clientes set rg='" + rg + "',Nome='" + Nome + "',endereco='" + endereco + "',bairro='" + bairro + "', cidade='" + cidade + "',estado='" + estado + "',telefone='" + telefone + "', email='" + email + "', datanascimento='" + dtNascimento + "', sexo='" + sexo + "' where cod_Cliente=" +codCliente;
 
                 break;
 
             case 'D':
 
-                this.sql = "delete from Clientes where codCliente="+codCliente;
+                this.sql = "delete from Clientes where cod_Cliente="+codCliente;
 
                 break;
 

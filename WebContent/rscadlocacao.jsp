@@ -1,6 +1,7 @@
 <%@page import="javax.swing.JOptionPane"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-<%@page import="javax.mail.SendFailedException"%>
+<!-- <%@page import="javax.mail.SendFailedException"%> -->
 <%@page import="br.com.locadora.*" errorPage="erro.jsp"%>
 <jsp:useBean id="locacao" class="br.com.locadora.Locacao"/>
 <jsp:useBean id="fachada" class="br.com.locadora.Fachada" />
@@ -10,11 +11,12 @@
     Date data_retirada, data_devolucao;
     int cod_locacao, cod_cliente, cod_filme;
     
-    cod_locacao = request.getParameter("cod_locacao");
-    cod_cliente = session.getAttribute("cod_cliente").toString();
-    cod_filme = request.getParameter("cod_filme");
-    data_retirada = request.getParameter("data_retirada");
-    data_devolucao = request.getParameter("data_devolucao");
+    cod_locacao = Integer.parseInt(request.getParameter("cod_locacao"));
+    cod_cliente =  Integer.parseInt(session.getAttribute("cod_cliente").toString());
+    cod_filme =  Integer.parseInt(request.getParameter("cod_filme"));
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    data_retirada = formato.parse(request.getParameter("data_retirada"));
+    data_devolucao = formato.parse(request.getParameter("data_devolucao"));
     
     
     locacao.setCodlocacao(cod_locacao);

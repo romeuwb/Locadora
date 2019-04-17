@@ -1,4 +1,4 @@
-package br.com.locadora;
+package br.com.locadora.domain;
 
 public class Filme {
 
